@@ -1,0 +1,25 @@
+#!/bin/sh
+
+cd $(dirname $0)
+
+if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
+    mkdir -p ~/.vim/bundle
+    git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+fi
+
+if [ ! -z $TMUX_ENV ]; then
+    echo "set-option -g prefix C-t" > ~~~tmp
+    echo ".tmux.conf setting for remote."
+else
+    echo "set-option -g prefix C-g" > ~~~tmp
+    echo ".tmux.conf setting for local."
+fi
+cat ~~~tmp tmux.conf > ~~~tmux.conf
+mv ~~~tmux.conf .tmux.conf
+rm -f ~~~tmp
+
+for file in `find $HOME/dotfiles -name '.*' | grep -v 'dotfiles/.git$' | perl -nle 'm!dotfiles/(.+)$! and print $1'`; do
+    ln -s $HOME/dotfiles/$file $HOME/$file
+done
+
+echo "Finished!"
