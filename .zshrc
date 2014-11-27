@@ -88,3 +88,4 @@ function cd()
 {
   builtin cd $@ && ls;
 }
+export SDL_VIDEO_X11_DGAMOUSE=0
