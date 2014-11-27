@@ -1,7 +1,7 @@
-set encoding=utf-8
-scriptencoding utf-8
-
 syntax enable
+
+scriptencoding utf-8
+set encoding=utf-8
 
 set smartindent
 set expandtab
@@ -25,7 +25,7 @@ set laststatus=2
 set cmdheight=2
 set showcmd
 set listchars=tab:>-,extends:<,trail:-,eol:<
-set title
+set notitle
 set showmatch matchtime=1
 set clipboard=unnamed
 set autoread
