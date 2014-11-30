@@ -66,8 +66,6 @@ alias -g L='| less'
 alias -g G='| grep'
 alias ls='ls -F --color=auto'
 
-ZSH_THEME="steeef"
-
 function cd()
 {
   builtin cd $@ && ls;
