@@ -1,6 +1,9 @@
 [ -z "$PS1" ] && return
 
 export LANG=ja_JP.UTF-8
+export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case'
+export GREP_OPTIONS='--color=auto'
+export SDL_VIDEO_X11_DGAMOUSE=0
 
 bindkey -e
 bindkey "^[[Z" reverse-menu-complete
@@ -9,6 +12,8 @@ bindkey '^[^B' vi-backward-blank-word
 bindkey '^[^F' vi-forward-blank-word
 bindkey '^[^U' backward-delete-word
 bindkey '^[^K' delete-word
+
+eval $(dircolors -b)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -28,6 +33,49 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+
+autoload smart-insert-last-word
+zle -N insert-last-word smart-insert-last-word
+zstyle :insert-last-word match '*([^[:space:]][[:alpha:]/\\]|[[:alpha:]/\\][^[:space:]])*'
+bindkey '^]' insert-last-word
+
+function _delete-char-or-list-expand() {
+    if [[ -z "${RBUFFER}" ]]; then
+        zle list-expand
+    else
+        zle delete-char
+    fi
+}
+zle -N _delete-char-or-list-expand
+bindkey '^D' _delete-char-or-list-expand
+
+function _kill-backward-blank-word() {
+    zle set-mark-command
+    zle vi-backward-blank-word
+    zle kill-region
+}
+zle -N _kill-backward-blank-word
+bindkey '^Y' _kill-backward-blank-word
+
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+bindkey "^O" history-beginning-search-backward-end
+
+autoload -U modify-current-argument
+_quote-previous-word-in-single() {
+    modify-current-argument '${(qq)${(Q)ARG}}'
+    zle vi-forward-blank-word
+}
+
+zle -N _quote-previous-word-in-single
+bindkey '^[s' _quote-previous-word-in-single
+
+quote-previous-word-in-double() {
+    modify-current-argument '${(qqq)${(Q)ARG}}'
+    zle vi-forward-blank-word
+}
+zle -N _quotus-previous-word-in-double
+bindkey '^[d' _quote-previous-word-in-double
 
 autoload -Uz select-word-style
 autoload -Uz vcs_info
@@ -56,6 +104,7 @@ setopt hist_reduce_blanks
 setopt extended_glob
 unset caseglob
 
+alias d='cd'
 alias ..='cd ..'
 alias la='ls -a'
 alias ll='ls -l'
@@ -72,9 +121,7 @@ alias q=`exit`
 
 function cd()
 {
-  builtin cd $@ && ls;
+    builtin cd $@ && ls;
 }
-
-export SDL_VIDEO_X11_DGAMOUSE=0
 
 setxkbmap -option ctrl:nocaps
