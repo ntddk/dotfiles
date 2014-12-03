@@ -5,6 +5,10 @@ export LANG=ja_JP.UTF-8
 bindkey -e
 bindkey "^[[Z" reverse-menu-complete
 bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^[^B' vi-backward-blank-word
+bindkey '^[^F' vi-forward-blank-word
+bindkey '^[^U' backward-delete-word
+bindkey '^[^K' delete-word
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -14,8 +18,6 @@ HIST_STAMPS="mm/dd/yyyy"
 PROMPT='[%F{magenta}%n%f@%F{green}%U%m%u%f:%F{blue}%B%d%f%b]# '
 RPROMPT='[%*]'
 SPROMPT='correct: %R -> %r ? '
-
-select-word-style default
 
 zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
