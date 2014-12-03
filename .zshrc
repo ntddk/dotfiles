@@ -66,6 +66,7 @@ alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
 alias ls='ls -F --color=auto'
+alias q=`exit`
 
 function cd()
 {
@@ -73,3 +74,5 @@ function cd()
 }
 
 export SDL_VIDEO_X11_DGAMOUSE=0
+
+setxkbmap -option ctrl:nocaps
