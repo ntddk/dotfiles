@@ -4,6 +4,8 @@ export LANG=ja_JP.UTF-8
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case'
 export GREP_OPTIONS='--color=auto'
 export SDL_VIDEO_X11_DGAMOUSE=0
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH="/usr/local/heroku/bin:$PATH"
 
 bindkey -e
 bindkey "^[[Z" reverse-menu-complete
