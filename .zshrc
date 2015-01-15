@@ -109,7 +109,7 @@ unset caseglob
 alias d='cd'
 alias ..='cd ..'
 alias la='ls -a'
-alias ll='ls -l'
+alias ll='ls -la'
 alias ks='ls'
 alias rm='rm -i'
 alias cp='cp -i'
