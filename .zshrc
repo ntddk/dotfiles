@@ -120,6 +120,8 @@ alias -g L='| less'
 alias -g G='| grep'
 alias ls='ls -F --color=auto'
 alias q=`exit`
+alias fuck='eval $(thefuck $(fc -ln -1))'<
+alias FUCK='fuck'<
 
 function cd()
 {
