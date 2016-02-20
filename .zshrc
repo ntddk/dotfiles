@@ -23,7 +23,7 @@ SAVEHIST=1000000
 HIST_STAMPS="mm/dd/yyyy"
 
 PROMPT='[%F{magenta}%n%f@%F{green}%U%m%u%f:%F{blue}%B%d%f%b]# '
-RPROMPT='[%*]'
+#RPROMPT='[%*]'
 SPROMPT='correct: %R -> %r ? '
 
 zstyle ':zle:*' word-chars " /=;@:{},|"
@@ -127,5 +127,15 @@ function cd()
 {
     builtin cd $@ && ls;
 }
+
+function aslr(){
+    ASLR=`cat /proc/sys/kernel/randomize_va_space`
+    if [ $ASLR = '2' ]; then
+        RPROMPT='[%*][%F{red}ASLR%f]'
+    else
+        RPROMPT='[%*][%F{blue}NO ASLR%f]'
+fi
+}
+precmd(){ aslr }
 
 setxkbmap -option ctrl:nocaps
