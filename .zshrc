@@ -148,14 +148,3 @@ precmd(){ aslr }
 function ipv6todecimal(){
     dig $1 aaaa +short | perl -lpe '($c=$_)=~s/[^:]//g; s/::/":"x length($c)/e; foreach (split(/:/)) { $_= hex($_); $o .= sprintf("%d.%d.", int($_/256), $_%256);} $_=substr($o,0,-1);'
 }
-
-if which pbcopy >/dev/null 2>&1 ; then 
-    # Mac  
-    alias -g C='| pbcopy'
-elif which xsel >/dev/null 2>&1 ; then 
-    # Linux
-    alias -g C='| xsel --input --clipboard'
-elif which putclip >/dev/null 2>&1 ; then 
-    # Cygwin 
-    alias -g C='| putclip'
-fi
