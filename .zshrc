@@ -126,6 +126,8 @@ alias mac='ifconfig eth0 | egrep -o "([[:xdigit:]]{2}[:]){5}[[:xdigit:]]{2}"'
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
 alias qemu-mouse='setxkbmap -option ctrl:nocaps'
+alias trl='tr "A-Z" "a-z"'
+alias tru='tr "a-z" "A-Z"'
 
 function cd()
 {
@@ -138,6 +140,22 @@ function aslr(){
         RPROMPT='[%*][%F{red}ASLR%f]'
     else
         RPROMPT='[%*][%F{blue}NO ASLR%f]'
-fi
+    fi
 }
+
 precmd(){ aslr }
+
+function ipv6todecimal(){
+    dig $1 aaaa +short | perl -lpe '($c=$_)=~s/[^:]//g; s/::/":"x length($c)/e; foreach (split(/:/)) { $_= hex($_); $o .= sprintf("%d.%d.", int($_/256), $_%256);} $_=substr($o,0,-1);'
+}
+
+if which pbcopy >/dev/null 2>&1 ; then 
+    # Mac  
+    alias -g C='| pbcopy'
+elif which xsel >/dev/null 2>&1 ; then 
+    # Linux
+    alias -g C='| xsel --input --clipboard'
+elif which putclip >/dev/null 2>&1 ; then 
+    # Cygwin 
+    alias -g C='| putclip'
+fi
