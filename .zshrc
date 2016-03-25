@@ -8,7 +8,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-export CPATH=/path/to/cudnn/include:$CPATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
