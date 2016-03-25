@@ -6,6 +6,11 @@ export GREP_OPTIONS='--color=auto'
 export SDL_VIDEO_X11_DGAMOUSE=0
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export CPATH=/path/to/cudnn/include:$CPATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 bindkey -e
 bindkey "^[[Z" reverse-menu-complete
@@ -15,6 +20,7 @@ bindkey '^[^F' vi-forward-blank-word
 bindkey '^[^U' backward-delete-word
 bindkey '^[^K' delete-word
 
+eval "$(pyenv init -)"
 eval $(dircolors -b)
 
 HISTFILE=~/.zsh_history
