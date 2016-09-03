@@ -7,6 +7,11 @@ if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
     git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
 
+if [ ! -d ~/.pyenv/ ]; then
+    mkdir -p ~/.pyenv/
+    git clone https://github.com/yyuu/pyenv.git ~/.pyenv/
+fi
+
 if [ ! -z $TMUX_ENV ]; then
     echo "set-option -g prefix C-t" > ~~~tmp
     echo ".tmux.conf setting for remote."
@@ -22,6 +27,6 @@ for file in `find $HOME/dotfiles -name '.*' | grep -v 'dotfiles/.git$' | perl -n
     ln -s -f $HOME/dotfiles/$file $HOME/$file
 done
 
-chsh -s /bin/zsh
+chsh -s /usr/bin/zsh
 
 echo "Finished!"
