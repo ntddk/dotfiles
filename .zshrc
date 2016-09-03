@@ -130,7 +130,7 @@ alias ipv6='ifconfig eth0 | egrep -o "([[:xdigit:]]{0,4}[:]){7}[[:xdigit:]]{0,4}
 alias mac='ifconfig eth0 | egrep -o "([[:xdigit:]]{2}[:]){5}[[:xdigit:]]{2}"'
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
-alias qemu-mouse='setxkbmap -option ctrl:nocaps'
+alias nocaps='setxkbmap -option ctrl:nocaps'
 alias trl='tr "A-Z" "a-z"'
 alias tru='tr "a-z" "A-Z"'
 
