@@ -27,6 +27,6 @@ for file in `find $HOME/dotfiles -name '.*' | grep -v 'dotfiles/.git$' | perl -n
     ln -s -f $HOME/dotfiles/$file $HOME/$file
 done
 
-chsh -s /usr/bin/zsh
+chsh -s $(which zsh)
 
 echo "Finished!"
