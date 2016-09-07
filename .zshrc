@@ -27,8 +27,9 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 HIST_STAMPS="mm/dd/yyyy"
 
-PROMPT='[%F{magenta}%n%f@%F{green}%U%m%u%f:%F{blue}%B%d%f%b]# '
-#RPROMPT='[%*]'
+PROMPT='[%*][%F{magenta}%n%f@%F{green}%U%m%u%f:%F{blue}%B%d%f%b]
+$ '
+RPROMPT='[${vcs_info_msg_0_}]'
 SPROMPT='correct: %R -> %r ? '
 
 zstyle ':zle:*' word-chars " /=;@:{},|"
@@ -40,6 +41,8 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+zstyle ':vcs_info:*' formats '%s][* %F{green}%b%f'
+zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
 
 autoload smart-insert-last-word
 zle -N insert-last-word smart-insert-last-word
@@ -109,6 +112,7 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt extended_glob
+setopt prompt_subst
 unset caseglob
 
 alias d='cd'
@@ -139,16 +143,7 @@ function cd()
     builtin cd $@ && ls;
 }
 
-function aslr(){
-    ASLR=`cat /proc/sys/kernel/randomize_va_space`
-    if [ $ASLR = '2' ]; then
-        RPROMPT='[%*][%F{red}ASLR%f]'
-    else
-        RPROMPT='[%*][%F{blue}NO ASLR%f]'
-    fi
-}
-
-precmd(){ aslr }
+precmd(){ vcs_info } 
 
 function ipv6todecimal(){
     dig $1 aaaa +short | perl -lpe '($c=$_)=~s/[^:]//g; s/::/":"x length($c)/e; foreach (split(/:/)) { $_= hex($_); $o .= sprintf("%d.%d.", int($_/256), $_%256);} $_=substr($o,0,-1);'
