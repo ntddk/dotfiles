@@ -1,12 +1,18 @@
 #!/bin/sh
 
-cd $(dirname $0)
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 if [ ! -f ~/.vim/colors/wombat256.vim ]; then
     mkdir -p ~/.vim/colors/
-    git clone https://github.com/vim-scripts/wombat256.vim.git ~/wombat256.vim
-    mv ~/wombat256.vim/colors/wombat256mod.vim ~/.vim/colors/wombat256.vim 
-    rm -rf ~/wombat256.vim
+    git clone https://github.com/vim-scripts/wombat256.vim.git $SCRIPT_DIR/wombat256.vim
+    mv $SCRIPT_DIR/wombat256.vim/colors/wombat256mod.vim ~/.vim/colors/wombat256.vim
+    rm -rf $SCRIPT_DIR/wombat256.vim
+fi
+
+if [ ! -d ~/.vim/rc/ ]; then
+    mkdir -p ~/.vim/rc
+    ln -Fis $SCRIPT_DIR/dein.toml ~/.vim/rc/
+    ln -Fis $SCRIPT_DIR/dein_lazy.toml ~/.vim/rc/
 fi
 
 if [ ! -d ~/.pyenv/ ]; then
