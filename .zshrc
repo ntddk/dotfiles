@@ -148,3 +148,6 @@ precmd(){ vcs_info }
 function ipv6todecimal(){
     dig $1 aaaa +short | perl -lpe '($c=$_)=~s/[^:]//g; s/::/":"x length($c)/e; foreach (split(/:/)) { $_= hex($_); $o .= sprintf("%d.%d.", int($_/256), $_%256);} $_=substr($o,0,-1);'
 }
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
