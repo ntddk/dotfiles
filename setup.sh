@@ -18,6 +18,7 @@ fi
 if [ ! -d ~/.pyenv/ ]; then
     mkdir -p ~/.pyenv/
     git clone https://github.com/yyuu/pyenv.git ~/.pyenv/
+    git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/pyenv-virtualenvwrapper
 fi
 
 if [ ! -d ~/.rbenv/ ]; then
