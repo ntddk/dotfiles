@@ -20,6 +20,12 @@ if [ ! -d ~/.pyenv/ ]; then
     git clone https://github.com/yyuu/pyenv.git ~/.pyenv/
 fi
 
+if [ ! -d ~/.rbenv/ ]; then
+    mkdir -p ~/.rbenv/
+    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+fi
+
 if [ ! -z $TMUX_ENV ]; then
     echo "set-option -g prefix C-t" > ~~~tmp
     echo ".tmux.conf setting for remote."
