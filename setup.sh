@@ -27,6 +27,10 @@ if [ ! -d ~/.rbenv/ ]; then
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
 
+if [ ! -d ~/.nvm/ ]; then
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+fi
+
 if [ ! -z $TMUX_ENV ]; then
     echo "set-option -g prefix C-t" > ~~~tmp
     echo ".tmux.conf setting for remote."
