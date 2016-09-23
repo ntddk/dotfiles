@@ -23,7 +23,6 @@ bindkey '^[^U' backward-delete-word
 bindkey '^[^K' delete-word
 
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenvwrapper)"
 eval "$(rbenv init -)"
 eval $(dircolors -b)
 
