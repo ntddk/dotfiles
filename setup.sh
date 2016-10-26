@@ -30,6 +30,11 @@ if [ ! -d ~/.nvm/ ]; then
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 fi
 
+if [ ! -d ~/peda/ ]; then
+    git clone https://github.com/longld/peda.git ~/peda
+    echo "source ~/peda/peda.py" >> ~/.gdbinit
+fi
+
 if [ ! -z $TMUX_ENV ]; then
     echo "set-option -g prefix C-t" > ~~~tmp
     echo ".tmux.conf setting for remote."
