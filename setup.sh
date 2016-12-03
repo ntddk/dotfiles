@@ -30,6 +30,12 @@ if [ ! -d ~/.nvm/ ]; then
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 fi
 
+if [ ! -d ~/go/ ]; then
+    wget https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
+    sudo tar -C $HOME -xzf go1.7.4.linux-amd64.tar.gz
+    rm -f go1.7.4.linux-amd64.tar.gz
+fi
+
 if [ ! -d ~/peda/ ]; then
     git clone https://github.com/longld/peda.git ~/peda
     echo "source ~/peda/peda.py" >> ~/.gdbinit
