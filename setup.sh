@@ -31,9 +31,9 @@ if [ ! -d ~/.nvm/ ]; then
 fi
 
 if [ ! -d ~/go/ ]; then
-    wget https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
-    sudo tar -C $HOME -xzf go1.7.4.linux-amd64.tar.gz
-    rm -f go1.7.4.linux-amd64.tar.gz
+    wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
+    tar -C $HOME -xzf go1.8.linux-amd64.tar.gz
+    rm -f go1.8.linux-amd64.tar.gz
 fi
 
 if [ ! -d ~/peda/ ]; then
