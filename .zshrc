@@ -18,6 +18,7 @@ export PATH=$PATH:$HOME/go
 export PATH=$PATH:$GOROOT/bin
 export GOROOT=$HOME/go
 export GOPATH=$HOME
+export PATH="$HOME/.cargo/bin:$PATH"
 
 bindkey -e
 bindkey "^[[Z" reverse-menu-complete

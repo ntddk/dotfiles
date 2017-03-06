@@ -36,6 +36,10 @@ if [ ! -d ~/go/ ]; then
     rm -f go1.8.linux-amd64.tar.gz
 fi
 
+if [ ! -d ~/.cargo/ ]; then
+    curl https://sh.rustup.rs -sSf | sh
+fi
+
 if [ ! -d ~/peda/ ]; then
     git clone https://github.com/longld/peda.git ~/peda
     echo "source ~/peda/peda.py" >> ~/.gdbinit
