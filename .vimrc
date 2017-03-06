@@ -100,6 +100,7 @@ set backspace=indent,eol,start
 " マーカーで折り畳む
 set foldmethod=marker
 " 常にコマンドを表示
+set showcmd
 
 "+--------------+
 "| Key mappings |
