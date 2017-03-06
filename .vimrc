@@ -22,6 +22,13 @@ let s:dein_dir = expand('~/.vim/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let s:rc_dir = expand('~/.vim/rc')
 
+" Rust用設定
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = $HOME . '/.cargo/bin/rustfmt'
+set hidden
+let g:racer_cmd = $HOME . '=/.cargo/bin/racer'
+let $RUST_SRC_PATH=$HOME . '/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+
 if has('vim_starting')
     " 起動にかかる読み込み時のみ以下を実行
     if &runtimepath !~# '/dein.vim'
@@ -93,7 +100,6 @@ set backspace=indent,eol,start
 " マーカーで折り畳む
 set foldmethod=marker
 " 常にコマンドを表示
-set showcmd
 
 "+--------------+
 "| Key mappings |

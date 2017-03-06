@@ -89,6 +89,18 @@ hook_source = ''' " {{{
 ''' # }}}
 
 [[plugins]]
+# Rustのシンタックスハイライト
+repo = 'rust-lang/rust.vim'
+build = 'cargo install rustfmt'
+on_ft = ['rust']
+
+[[plugins]]
+# Rustのコード補完
+repo = 'phildawes/racer'
+build = 'cargo install racer'
+on_ft = ['rust']
+
+[[plugins]]
 # LLVM IRのシンタックスハイライト
 repo = 'qnighy/llvm.vim'
 on_ft = ['llvm']
