@@ -134,6 +134,8 @@ nnoremap gp gT
 nnoremap <silent> gx :<C-u>tabclose<CR>
 " g+oで現在開いている以外のタブを全て閉じる
 nnoremap <silent> go :<C-u>tabonly<CR>
+" w!!で保存にroot権限が必要なファイルを保存する
+cmap w!! w !sudo tee % > /dev/null
 
 "+----------------+
 "| Color settings |
