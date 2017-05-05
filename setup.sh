@@ -40,9 +40,12 @@ if [ ! -d ~/.cargo/ ]; then
     curl https://sh.rustup.rs -sSf | sh
 fi
 
-if [ ! -d ~/peda/ ]; then
-    git clone https://github.com/longld/peda.git ~/peda
-    echo "source ~/peda/peda.py" >> ~/.gdbinit
+if [ ! -d ~/.peda/ ]; then
+    git clone https://github.com/longld/peda.git ~/.peda
+fi
+
+if [ ! -d ~/.pwngdb/ ]; then
+    git clone https://github.com/scwuaptx/Pwngdb.git ~/.pwngdb
 fi
 
 if [ ! -z $TMUX_ENV ]; then
