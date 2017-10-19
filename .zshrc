@@ -14,10 +14,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-export PATH=$PATH:$HOME/go
-export PATH=$PATH:$GOROOT/bin
-export GOROOT=$HOME/go
-export GOPATH=$HOME
+export PATH="$HOME/.goenv/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 bindkey -e
@@ -30,6 +27,7 @@ bindkey '^[^K' delete-word
 
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+eval "$(goenv init -)"
 eval $(dircolors -b)
 
 HISTFILE=~/.zsh_history

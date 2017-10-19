@@ -30,10 +30,9 @@ if [ ! -d ~/.nvm/ ]; then
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 fi
 
-if [ ! -d ~/go/ ]; then
-    wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
-    tar -C $HOME -xzf go1.8.linux-amd64.tar.gz
-    rm -f go1.8.linux-amd64.tar.gz
+if [ ! -d ~/.goenv/ ]; then
+    mkdir -p ~/.goenv/
+    git clone https://github.com/wfarr/goenv.git ~/.goenv
 fi
 
 if [ ! -d ~/.cargo/ ]; then
