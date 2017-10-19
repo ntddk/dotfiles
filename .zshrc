@@ -162,3 +162,5 @@ function ipv6todecimal(){
 
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
