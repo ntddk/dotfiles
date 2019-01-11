@@ -244,3 +244,9 @@ augroup FileTypeVimrcCommands
     " 常に文字数による自動改行は行わない
     autocmd FileType * setlocal textwidth=0
 augroup END
+
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none

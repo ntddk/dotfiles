@@ -27,7 +27,7 @@ if [ ! -d ~/.rbenv/ ]; then
 fi
 
 if [ ! -d ~/.nvm/ ]; then
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 fi
 
 if [ ! -d ~/.goenv/ ]; then
