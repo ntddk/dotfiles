@@ -146,6 +146,7 @@ alias nocaps='setxkbmap -option ctrl:nocaps'
 alias trl='tr "A-Z" "a-z"'
 alias tru='tr "a-z" "A-Z"'
 alias socat='(){socat TCP-LISTEN:$1,,reuseaddr,fork EXEC:$2&}'
+alias pbcopy='xsel --clipboard --input'
 
 function cd()
 {
