@@ -52,13 +52,6 @@ if [ ! -d ~/.pwngdb/ ]; then
     git clone https://github.com/scwuaptx/Pwngdb.git ~/.pwngdb
 fi
 
-if [ ! -d ~/.symgdb/ ]; then
-    git clone https://github.com/SQLab/symgdb.git ~/.symgdb
-    cd ~/.symgdb/
-    bash ./install.sh
-    cd $SCRIPT_DIR
-fi
-
 if [ ! -z $TMUX_ENV ]; then
     echo "set-option -g prefix C-t" > ~~~tmp
     echo ".tmux.conf setting for remote."
