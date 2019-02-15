@@ -16,6 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 export PATH="$HOME/.goenv/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 bindkey -e
 bindkey "^[[Z" reverse-menu-complete
