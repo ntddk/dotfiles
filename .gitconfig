@@ -1,3 +1,9 @@
 [user]
-	email = ntinternal@gmail.com
-	name = ntddk
+    email = ntinternal@gmail.com
+    name = ntddk
+
+[core]
+    pager = less -q -R
+
+[color]
+    ui = auto
