@@ -2,7 +2,6 @@
 
 export LANG=ja_JP.UTF-8
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case'
-export GREP_OPTIONS='--color=auto'
 export SDL_VIDEO_X11_DGAMOUSE=0
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -141,6 +140,9 @@ alias q='exit'
 alias ipv4='ifconfig eth0 | egrep -o "([0-9]{1,3}\.){3}[0-9]{1,3}" | sed -n 1p'
 alias ipv6='ifconfig eth0 | egrep -o "([[:xdigit:]]{0,4}[:]){7}[[:xdigit:]]{0,4}" | sed -n 1p'
 alias mac='ifconfig eth0 | egrep -o "([[:xdigit:]]{2}[:]){5}[[:xdigit:]]{2}"'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
 alias nocaps='setxkbmap -option ctrl:nocaps'
