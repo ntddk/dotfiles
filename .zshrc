@@ -150,6 +150,7 @@ alias trl='tr "A-Z" "a-z"'
 alias tru='tr "a-z" "A-Z"'
 alias socat='(){socat TCP-LISTEN:$1,,reuseaddr,fork EXEC:$2&}'
 alias pbcopy='xsel --clipboard --input'
+alias catn="jq '.cells[] | select(.cell_type == \"code\") .source[]' $1"
 
 function cd()
 {
